@@ -1,7 +1,7 @@
 <%-- 
     Document   : register.jsp
-    Created on : Sep 28, 2014, 6:29:51 PM
-    Author     : Administrator
+    Created on : Sep 25, 2016, 23:37:44 PM
+    Author     : Ramesh Khairandish
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-        <h1>InstaGrim ! </h1>
+        <h1>InstaGrim </h1>
         <h2>Your world in Black and White</h2>
         </header>
         <nav>
