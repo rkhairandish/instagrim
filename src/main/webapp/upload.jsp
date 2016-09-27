@@ -1,7 +1,7 @@
 <%-- 
-    Document   : upload
-    Created on : Sep 22, 2014, 6:31:50 PM
-    Author     : Administrator
+    Document   : upload.jsp
+    Created on : Sep 25, 2016, 23:37:44 PM
+    Author     : Ramesh Khairandish
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,8 +13,8 @@
         <link rel="stylesheet" type="text/css" href="Styles.css" />
     </head>
     <body>
-        <h1>InstaGrim ! </h1>
-        <h2>Your world in Black and White</h2>
+        <h1><a href =index.jsp>InstaGrim</a> </h1>
+        <h2>Upload Images To Your world!</h2>
         <nav>
             <ul>
                 <li class="nav"><a href="upload.jsp">Upload</a></li>
