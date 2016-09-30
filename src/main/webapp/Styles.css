@@ -14,10 +14,10 @@ nav{
     text-align: left;
     border: 8px;
     float: right;
-    font-family: "BatmanForeverOutline", BatmanForeverOutline;
+    font-family: BatmanForeverOutline;
 }
 nav:hover{
-    background-color:#6b7071;
+    background-color:#676767;
     text-align: left;
     border: 8px;
     float: right;
@@ -35,9 +35,10 @@ ul {
 }
 
 ul:hover{
-    background-color:#6b7071;
+    background-color:#676767;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 20px;
+    font-style: oblique;
+    font-size: 18px;
     border-left: 6px solid red;
 }
 
@@ -46,7 +47,7 @@ h1{
     text-align: center;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 h1:hover{
@@ -54,8 +55,26 @@ h1:hover{
     text-align: center;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     text-transform: uppercase;
-    font-size: 50px;
+    font-style: oblique;
+    font-size: 40px;
     border-left: 6px solid red;
-    background-color: #6b7071;
+    background-color: #676767;
 
 }
+
+h2{
+    font: Transformers Movie;
+    font-style: oblique;
+}
+
+body {
+    width: 1120px;
+    border: 25px solid #676767;
+    padding: 85px;
+    margin: 15px;
+}
+
+
+
+
+
