@@ -14,14 +14,14 @@ nav{
     text-align: left;
     border: 8px;
     float: right;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "BatmanForeverOutline", BatmanForeverOutline;
 }
 nav:hover{
     background-color:#6b7071;
     text-align: left;
     border: 8px;
     float: right;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: njnaruto;
     border-left: 6px solid red;
 }
 
@@ -30,7 +30,7 @@ body{
 }
 
 ul {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "Transformers Movie", Transformers Movie;
     font-size: 20px;
 }
 
@@ -58,14 +58,4 @@ h1:hover{
     border-left: 6px solid red;
     background-color: #6b7071;
 
-}
-
-/* unvisited link */
-index.jsp:link {
-    color: red;
-}
-
-/* visited link */
-index.jsp:visited {
-    color: green;
 }
