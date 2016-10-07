@@ -1,7 +1,7 @@
 <%-- 
     Document   : register.jsp
     Created on : Sep 25, 2016, 23:37:44 PM
-    Author     : Ramesh Khairandish
+    Author     : Ramesh Khairandish 
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,8 +14,8 @@
     </head>
     <body>
         <header>
-        <h1>InstaGrim </h1>
-        <h2>Your world in Black and White</h2>
+        <h1><a href =index.jsp>InstaGrim</a> </h1>
+        <h2>Register To Join InstaGrim World! </h2>
         </header>
         <nav>
             <ul>
@@ -25,11 +25,13 @@
         </nav>
        
         <article>
-            <h3>Register as user</h3>
+            <h3>Please enter details to register as user</h3>
             <form method="POST"  action="Register">
                 <ul>
                     <li>User Name <input type="text" name="username"></li>
+                     <li>Email <input type="text" name="email"></li>
                     <li>Password <input type="password" name="password"></li>
+                    
                 </ul>
                 <br/>
                 <input type="submit" value="Register"> 

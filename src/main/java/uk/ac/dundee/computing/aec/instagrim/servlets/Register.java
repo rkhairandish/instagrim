@@ -46,11 +46,12 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username=request.getParameter("username");
+        String email=request.getParameter("email");
         String password=request.getParameter("password");
         
         User us=new User();
         us.setCluster(cluster);
-        us.RegisterUser(username, password);
+        us.RegisterUser(username, email, password);
         
 	response.sendRedirect("/Instagrim");
         
@@ -63,7 +64,7 @@ public class Register extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Short description of servlet";
     }// </editor-fold>
 
 }

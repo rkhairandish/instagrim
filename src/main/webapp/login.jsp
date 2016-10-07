@@ -18,12 +18,6 @@
         <h1><a href =index.jsp>InstaGrim</a> </h1>
         <h2>Log Into Your InstaGrim World!</h2>
         </header>
-        <nav>
-            <ul>
-                <li><a href="/Instagrim/Images/majed">Sample Images</a></li>
-            </ul>
-        </nav>
-       
         <article>
             <h3>Login</h3>
             <form method="POST"  action="Login">

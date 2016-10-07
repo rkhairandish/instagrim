@@ -1,7 +1,7 @@
 <%-- 
     Document   : UsersPics
-    Created on : Sep 24, 2014, 2:52:48 PM
-    Author     : Administrator
+    Created on : Sep 25, 2016, 23:37:44 PM
+    Author     : Ramesh Khairandish
 --%>
 
 <%@page import="java.util.*"%>
@@ -17,19 +17,21 @@
     <body>
         <header>
         
-        <h1>InstaGrim ! </h1>
-        <h2>Your world in Black and White</h2>
+        <h1><a href =index.jsp>InstaGrim</a> </h1>
+        <h2>Your InstaGrim World!</h2>
         </header>
         
         <nav>
             <ul>
                 <li class="nav"><a href="/Instagrim/upload.jsp">Upload</a></li>
+                <li class="nav"><a href="/Instagrim/profile.jsp">Profile</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
+                <li class="nav"><a href="/Instagrim/Signout.jsp">Sign Out</a></li>
             </ul>
         </nav>
  
         <article>
-            <h1>Your Pics</h1>
+            <h1>Your Pictures</h1>
         <%
             java.util.LinkedList<Pic> lsPics = (java.util.LinkedList<Pic>) request.getAttribute("Pics");
             if (lsPics == null) {
@@ -42,7 +44,7 @@
             while (iterator.hasNext()) {
                 Pic p = (Pic) iterator.next();
 
-        %>
+        %>                
         <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/><%
 
             }

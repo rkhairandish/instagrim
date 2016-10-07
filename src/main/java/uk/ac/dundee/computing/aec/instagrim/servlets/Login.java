@@ -23,7 +23,7 @@ import uk.ac.dundee.computing.aec.instagrim.stores.LoggedIn;
 
 /**
  *
- * @author Administrator
+ * @author Andy & Ramesh
  */
 @WebServlet(name = "Login", urlPatterns = {"/Login","/Login/*"})
 public class Login extends HttpServlet {
@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
         
         String username=request.getParameter("username");
         String password=request.getParameter("password");
+        String email=request.getParameter("email");
         
         User us=new User();
         us.setCluster(cluster);
@@ -58,17 +59,19 @@ public class Login extends HttpServlet {
         System.out.println("Session in servlet "+session);
         if (isValid){
             LoggedIn lg= new LoggedIn();
-            lg.setLogedin();
+            lg.setLogedin();//misspelled?
             lg.setUsername(username);
+            lg.setEmail(email);
             //request.setAttribute("LoggedIn", lg);
             
             session.setAttribute("LoggedIn", lg);
             System.out.println("Session in servlet "+session);
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 	    rd.forward(request,response);
             
         }else{
             response.sendRedirect("/Instagrim/login.jsp");
+            
         }
         
     }

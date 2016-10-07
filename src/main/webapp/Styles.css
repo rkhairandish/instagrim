@@ -14,33 +14,33 @@ nav{
     text-align: left;
     border: 8px;
     float: right;
-    font-family: BatmanForeverOutline;
+    font-family: inherit;
 }
-/*nav:hover{
-    background-color:#E8E8E7;
-    text-align: left;
-    border: 8px;
-    float: right;
-    font-family: njnaruto;
-    border-left: 6px solid red;
-}*/
 
 body{
     background-color: #E8E8E7;
+    width: 1120px;
+    border: 25px solid #676767;
+    padding: 85px;
+    margin: 15px;
 }
 
 ul {
-    background-color:#E8E8E7;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* background-color:#E8E8E7;
     font-family: "Transformers Movie", Transformers Movie;
     font-size: 20px;
     background-color:#E8E8E7;
+    */
 }
 
 ul:hover{
     background-color:#E8E8E7;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-style: oblique;
-    font-size: 18px;
+    font-size: 15px;
     border-left: 6px solid red;
 }
 
@@ -68,16 +68,15 @@ h2{
     font-style: oblique;
 }
 
-body {
-    width: 1120px;
-    border: 25px solid #676767;
-    padding: 85px;
-    margin: 15px;
-}
 
 a {
     color: red;
 }
 
 
+
+.active {
+    background-color: #4CAF50;
+    color: #E8E8E7;
+}
 

@@ -1,8 +1,9 @@
 <%-- 
-    Document   : Index
-    Created on : Sep 25, 2016, 23:37:44 PM
-    Author     : Ramesh Khairandish
+    Document   : profile
+    Created on : 30-Sep-2016, 14:06:36
+    Author     : Ramesh
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uk.ac.dundee.computing.aec.instagrim.stores.*" %>
@@ -17,8 +18,7 @@
     <body>
         <header>
             <h1><a href =index.jsp>InstaGrim</a> </h1>
-            <h2>Welcome to InstaGrim!</h2>
-           
+            <h2>Your Profile!</h2>
         </header>
         <nav>
             <ul>
@@ -30,6 +30,7 @@
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if (lg != null) {
                             String UserName = lg.getUsername();
+                            String Email = lg.getEmail();
                             if (lg.getlogedin()) {
                     %>
 
@@ -49,7 +50,10 @@
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>
                 <li>&COPY; Andy Cobley & Ramesh Khairandish!</li>
+                <li>email test <%=lg.getEmail()%></li>
+                <li>name test <%=lg.getUsername()%></li>
             </ul>
         </footer>
     </body>
 </html>
+
