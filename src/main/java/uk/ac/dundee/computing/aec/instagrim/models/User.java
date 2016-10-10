@@ -37,17 +37,68 @@ public class User {
             return false;
         }
         Session session = cluster.connect("instagrim");
-        PreparedStatement ps = session.prepare("insert into userprofiles (login,password) Values(?,?)");
+        PreparedStatement ps = session.prepare("insert into userprofiles (login,password, email) Values(?,?,?)");
        
         BoundStatement boundStatement = new BoundStatement(ps);
         session.execute( // this is where the query is executed
                 boundStatement.bind( // here you are binding the 'boundStatement'
-                        username,EncodedPassword));
-        //We are assuming this always works.  Also a transaction would be good here !
+                        username,EncodedPassword, email));
+        //We are assuming this always works.  Also a transaction would be good here ! ?????
         
         return true;
     }
     
+    public String returnDetails(String username){
+        
+        String email = null;
+     
+        Session session = cluster.connect("instagrim");
+        PreparedStatement ps = session.prepare("SELECT email from userprofiles where login = ?");
+       
+        ResultSet rs = null;
+        BoundStatement boundStatement = new BoundStatement(ps);
+        rs = session.execute( // this is where the query is executed
+                boundStatement.bind( // here you are binding the 'boundStatement'
+                        username));
+                if (rs.isExhausted()) {
+            System.out.println("No Images returned");
+
+        } else {
+            for (Row row : rs) {
+               
+                email = row.getString("email");
+                
+                 
+            }
+        
+         
+    } 
+    return email; 
+    }
+    
+    
+//    public boolean getUserinfo(String username, String email, String password){ //ask database for user info youve put into it and then sets that info into the store for the session , now that its in the store in the session any mthod can just get it from the store 
+//        Session session = cluster.connect("instagrim");
+//        PreparedStatement ps = session.prepare("select password from userprofiles where login =?");
+//        ResultSet rs = null;
+//        BoundStatement boundStatement = new BoundStatement(ps);
+//        rs = session.execute( // this is where the query is executed
+//                boundStatement.bind( // here you are binding the 'boundStatement'
+//                        username));
+//        if (rs.isExhausted()) {
+//            System.out.println("No Images returned");
+//            return false;
+//        } else {
+//            for (Row row : rs) {
+//               
+//                String StoredPass = row.getString("password");
+//                if (StoredPass.compareTo(EncodedPassword) == 0)
+//                    return true;
+//            }
+//        }
+//      return true;
+//    }
+//        
     public boolean IsValidUser(String username, String Password){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
@@ -57,7 +108,8 @@ public class User {
             System.out.println("Can't check your password");
             return false;
         }
-        Session session = cluster.connect("instagrim");
+        Session session;
+        session = cluster.connect("instagrim");
         PreparedStatement ps = session.prepare("select password from userprofiles where login =?");
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);

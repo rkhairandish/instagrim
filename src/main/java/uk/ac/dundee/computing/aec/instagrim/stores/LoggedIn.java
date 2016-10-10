@@ -18,6 +18,8 @@ public class LoggedIn {
         
     }
     
+    //Get and Set Methods for User Details to be displayed in Profile.jsp
+    
     public void setUsername(String name){
         this.Username=name;
     }

@@ -11,7 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Instagrim</title>
         <link rel="stylesheet" type="text/css" href="Styles.css" />
-
     </head>
     <body>
         <header>
@@ -22,7 +21,7 @@
             <h3>Login</h3>
             <form method="POST"  action="Login">
                 <ul>
-                    <li>User Name <input type="text" name="username"></li>
+                    <li>Username <input type="text" name="username"></li>
                     <li>Password <input type="password" name="password"></li>
                 </ul>
                 <br/>
@@ -36,4 +35,5 @@
             </ul>
         </footer>
     </body>
+    
 </html>

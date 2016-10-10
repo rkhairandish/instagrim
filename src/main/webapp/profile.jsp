@@ -50,8 +50,8 @@
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>
                 <li>&COPY; Andy Cobley & Ramesh Khairandish!</li>
-                <li>email test <%=lg.getEmail()%></li>
-                <li>name test <%=lg.getUsername()%></li>
+                <li>Username: <%=lg.getUsername()%></li>
+                <li>Email: <%=lg.getEmail()%></li>
             </ul>
         </footer>
     </body>

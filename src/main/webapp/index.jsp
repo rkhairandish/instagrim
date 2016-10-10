@@ -39,7 +39,6 @@
                                 %>
                  <li><a href="register.jsp">Register</a></li>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="Signout.jsp">Sign Out</a></li>
                 <%
                     
                     }%>
