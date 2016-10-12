@@ -27,7 +27,7 @@ public class User {
         
     }
     
-    public boolean RegisterUser(String username, String email, String Password){
+    public boolean RegisterUser(String username, String first_name, String last_name, String email, String Password){
         AeSimpleSHA1 sha1handler=  new AeSimpleSHA1();
         String EncodedPassword=null;
         try {
@@ -48,12 +48,12 @@ public class User {
         return true;
     }
     
-    public String returnDetails(String username){
+    public String[] returnDetails(String username){
         
-        String email = null;
+        String[] UserDetails = new String[3];
      
         Session session = cluster.connect("instagrim");
-        PreparedStatement ps = session.prepare("SELECT email from userprofiles where login = ?");
+        PreparedStatement ps = session.prepare("SELECT first_name, last_name, email from userprofiles where login = ?");
        
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
@@ -65,15 +65,15 @@ public class User {
 
         } else {
             for (Row row : rs) {
-               
-                email = row.getString("email");
-                
-                 
+                    UserDetails[0] = row.getString(0);
+                    UserDetails[1] = row.getString(1);
+                    UserDetails[2] = row.getString(2);
+                    System.out.println(UserDetails[0] + UserDetails[1] + UserDetails[2]);  
+                }
+                //modified to be an array
+               // email = row.getString("email");   
             }
-        
-         
-    } 
-    return email; 
+    return UserDetails; 
     }
     
     

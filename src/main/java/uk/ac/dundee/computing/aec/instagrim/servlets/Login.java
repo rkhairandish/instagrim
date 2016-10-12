@@ -55,14 +55,16 @@ public class Login extends HttpServlet {
         User us=new User();
         us.setCluster(cluster);
         boolean isValid=us.IsValidUser(username, password);
-        String email = us.returnDetails(username);
+        String[] email = us.returnDetails(username);
         HttpSession session=request.getSession();
         System.out.println("Session in servlet "+session);
         if (isValid){
             LoggedIn lg= new LoggedIn();
             lg.setLogedin();//misspelled?
             lg.setUsername(username);
-            lg.setEmail(email);
+            lg.setfirst_name(us.returnDetails(username)[0]);
+            lg.setlast_name(us.returnDetails(username)[1]);
+            lg.setEmail(us.returnDetails(username)[2]);
             //request.setAttribute("LoggedIn", lg);
             
             session.setAttribute("LoggedIn", lg);

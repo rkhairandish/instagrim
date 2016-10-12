@@ -28,7 +28,9 @@
             <h3>Please enter details to register as user</h3>
             <form method="POST"  action="Register">
                 <ul>
-                    <li>User Name <input type="text" name="username"></li>
+                    <li>Username <input type="text" name="username"></li>
+                    <li>First Name <input type="text" name="first_name"></li>
+                    <li>Last Name <input type="text" name="last_name"></li>
                      <li>Email <input type="text" name="email"></li>
                     <li>Password <input type="password" name="password"></li>
                     
