@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
         
         String username=request.getParameter("username");
         String password=request.getParameter("password");
+        session.setAttribute("InvalidPassword", "");
  //       String email=request.getParameter("email");
         
         User us=new User();
@@ -72,11 +73,16 @@ public class Login extends HttpServlet {
             RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 	    rd.forward(request,response);
             
+            
         }else{
-            response.sendRedirect("/Instagrim/login.jsp");
+            session.setAttribute("InvalidPassword", "");
+        }
+            response.sendRedirect("/Instagrim/Login");
             
         }
         
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          
     }
 
     /**
@@ -90,3 +96,4 @@ public class Login extends HttpServlet {
     }// </editor-fold>
 
 }
+
