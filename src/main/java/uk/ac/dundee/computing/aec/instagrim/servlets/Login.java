@@ -50,8 +50,8 @@ public class Login extends HttpServlet {
         
         String username=request.getParameter("username");
         String password=request.getParameter("password");
-        session.setAttribute("InvalidPassword", "");
- //       String email=request.getParameter("email");
+ //     session.setAttribute("InvalidPassword", "");
+ //     String email=request.getParameter("email");
         
         User us=new User();
         us.setCluster(cluster);
@@ -61,12 +61,12 @@ public class Login extends HttpServlet {
         System.out.println("Session in servlet "+session);
         if (isValid){
             LoggedIn lg= new LoggedIn();
-            lg.setLogedin();//misspelled?
+            lg.setLoggedin();
             lg.setUsername(username);
             lg.setfirst_name(us.returnDetails(username)[0]);
             lg.setlast_name(us.returnDetails(username)[1]);
             lg.setEmail(us.returnDetails(username)[2]);
-            //request.setAttribute("LoggedIn", lg);
+            request.setAttribute("LoggedIn", lg);
             
             session.setAttribute("LoggedIn", lg);
             System.out.println("Session in servlet "+session);
@@ -75,14 +75,14 @@ public class Login extends HttpServlet {
             
             
         }else{
-            session.setAttribute("InvalidPassword", "");
+//            session.setAttribute("InvalidPassword", "");
         }
-            response.sendRedirect("/Instagrim/Login");
             
         }
         
-      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-          
+      protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+          RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+          rd.forward(request,response);
     }
 
     /**

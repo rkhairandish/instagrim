@@ -22,7 +22,7 @@
         </header>
         <nav>
             <ul>              
-                <li><a href="login.jsp">Login</a></li>
+                <li><a href="/Instagrim/Login">Login</a></li>
                 <li><a href="register.jsp">Register</a></li>
             </ul>
         </nav>
