@@ -29,7 +29,8 @@
                 <li class="nav"><a href="/Instagrim/Signout.jsp">Sign Out</a></li>
             </ul>
         </nav>
- 
+    
+        <div align="center">
         <article>
             <h1>Your Pictures</h1>
         <%
@@ -45,12 +46,13 @@
                 Pic p = (Pic) iterator.next();
 
         %>                
-        <a href="/Instagrim/Comments/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/><%
+        <a href="/Instagrim/Comments/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><%
 
             }
             }
         %>
         </article>
+      </div>
         <footer>
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>

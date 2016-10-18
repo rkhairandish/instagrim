@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uk.ac.dundee.computing.aec.instagrim.stores.LoggedIn;
 
 /**
  *
@@ -62,6 +63,8 @@ public class Profile extends HttpServlet {
             
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        LoggedIn lg = (LoggedIn)session.getAttribute("LoggedIn");
+        lg.setLoggedout();
          session.invalidate();
     request.getRequestDispatcher("/index.jsp").forward(request,response);
         processRequest(request, response);
