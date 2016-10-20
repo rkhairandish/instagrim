@@ -17,16 +17,16 @@
     <body>
         <header>
         
-        <h1><a href =index.jsp>InstaGrim</a> </h1>
+        <h1><a href ="/Instagrim">InstaGrim</a> </h1>
         <h2>Your InstaGrim World!</h2>
         </header>
         
         <nav>
             <ul>
                 <li class="nav"><a href="/Instagrim/upload.jsp">Upload</a></li>
-                <li class="nav"><a href="/Instagrim/profile.jsp">Profile</a></li>
+                <li class="nav"><a href="/Instagrim/Profile">Profile</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
-                <li class="nav"><a href="/Instagrim/Signout.jsp">Sign Out</a></li>
+                <li class="nav"><a href="/Instagrim/SignOut">Sign Out</a></li>
             </ul>
         </nav>
     

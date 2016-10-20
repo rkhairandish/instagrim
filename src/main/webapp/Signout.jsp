@@ -20,10 +20,13 @@
             <h1><a>InstaGrim</a> </h1>
             <h2>Signed Out!</h2>
         </header>
+        <%
+            session.invalidate();
+            %>
         <nav>
             <ul>              
                 <li><a href="/Instagrim/Login">Login</a></li>
-                <li><a href="register.jsp">Register</a></li>
+                <li><a href="/Instagrim/Register">Register</a></li>
             </ul>
         </nav>
         <footer>

@@ -16,7 +16,7 @@
     </head>
     <body>
         <header>
-            <h1><a href =index.jsp>InstaGrim</a> </h1>
+            <h1><a href ="/Instagrim">InstaGrim</a> </h1>
             <h2>Welcome to InstaGrim!</h2>
            
         </header>

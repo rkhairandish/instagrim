@@ -17,7 +17,7 @@
     </head>
     <body>
         <header>
-            <h1><a href =index.jsp>InstaGrim</a> </h1>
+            <h1><a href ="/Instagrim">InstaGrim</a> </h1>
             <h2>Your Profile!</h2>
         </header>
         <nav>
@@ -38,9 +38,9 @@
                     <%}
                             }else{
                                 %>
-                 <li><a href="register.jsp">Register</a></li>
-                <li><a href="login.jsp">Login</a></li>
-                <li><a href="Signout.jsp">Sign Out</a></li>
+                 <li><a href="/Instagrim/Register">Register</a></li>
+                <li><a href="/Instagrim/login">Login</a></li>
+                <li><a href="/Instagrim/SignOut">Sign Out</a></li>
                 <%                   
                     }%>
             </ul>

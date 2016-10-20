@@ -56,7 +56,8 @@ public class Register extends HttpServlet {
         us.RegisterUser(username, first_name, last_name, email, password);
         
 	response.sendRedirect("/Instagrim");
-        
+        RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
+        rd.forward(request,response);
     }
 
     /**

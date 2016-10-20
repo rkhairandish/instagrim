@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="Styles.css" />
     </head>
     <body>
-        <h1><a href =index.jsp>InstaGrim</a> </h1>
+        <h1><a href ="/Instagrim">InstaGrim</a> </h1>
         <h2>Upload Images To Your world!</h2>
         <nav>
             <ul>

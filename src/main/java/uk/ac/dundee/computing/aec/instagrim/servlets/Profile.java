@@ -64,10 +64,9 @@ public class Profile extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         LoggedIn lg = (LoggedIn)session.getAttribute("LoggedIn");
-        lg.setLoggedout();
-         session.invalidate();
-    request.getRequestDispatcher("/index.jsp").forward(request,response);
-        processRequest(request, response);
+        System.out.println("inside logout");
+          RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+          rd.forward(request,response);
     }
 
     /**
@@ -83,7 +82,6 @@ public class Profile extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
     /**
      * Returns a short description of the servlet.
      *
