@@ -52,7 +52,7 @@ public class SignOut extends HttpServlet {
         }
         
       protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-          System.out.println("inside logout");
+          System.out.println("Signed Out");
         HttpSession session=request.getSession();
         session.invalidate();
         RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");

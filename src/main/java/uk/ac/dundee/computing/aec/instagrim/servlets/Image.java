@@ -152,7 +152,7 @@ public class Image extends HttpServlet {
                 is.close();
             }
             RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
-             rd.forward(request, response);
+            rd.forward(request, response);
         }
 
     }
@@ -165,5 +165,5 @@ public class Image extends HttpServlet {
         out.println("<h2>" + mess + "</h2>");
         out.close();
         return;
-    }
+    }   
 }

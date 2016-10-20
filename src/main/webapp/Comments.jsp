@@ -23,10 +23,10 @@
         
         <nav>
             <ul>
-                <li class="nav"><a href="/Instagrim/upload.jsp">Upload</a></li>
-                <li class="nav"><a href="/Instagrim/profile.jsp">Profile</a></li>
+                <li class="nav"><a href="/Instagrim/upload">Upload</a></li>
+                <li class="nav"><a href="/Instagrim/profile">Profile</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
-                <li class="nav"><a href="/Instagrim/Signout.jsp">Sign Out</a></li>
+                <li class="nav"><a href="/Instagrim/Signout">Sign Out</a></li>
             </ul>
         </nav>
             

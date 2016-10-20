@@ -55,6 +55,7 @@ public class Login extends HttpServlet {
         
         User us=new User();
         us.setCluster(cluster);
+        
         boolean isValid=us.IsValidUser(username, password);
         String[] email = us.returnDetails(username);
         HttpSession session=request.getSession();

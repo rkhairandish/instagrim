@@ -7,6 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <script>
+        function validateForm() {
+    var x = document.forms["myForm"]["username"].value;
+    var y = document.forms["myForm"]["password"].value;
+    if (x == null || x == ""||y == null || y == "") {
+        alert("Username and password must be filled out");
+        return false;
+        }
+    }
+        </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Instagrim</title>
@@ -19,7 +29,7 @@
         </header>
         <article>
             <h3>Login</h3>
-            <form method="POST"  action="Login">
+            <form name="myForm" method="POST"  action="Login" onsubmit="return validateForm()">
                 <ul>
                     <li>Username <input type="text" name="username"></li>
                     <li>Password <input type="password" name="password"></li>
