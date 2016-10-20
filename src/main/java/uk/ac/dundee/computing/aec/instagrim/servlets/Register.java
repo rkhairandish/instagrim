@@ -8,7 +8,7 @@ package uk.ac.dundee.computing.aec.instagrim.servlets;
 
 import com.datastax.driver.core.Cluster;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.PrintWriter; //Currently Unused
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -30,10 +30,7 @@ public class Register extends HttpServlet {
         // TODO Auto-generated method stub
         cluster = CassandraHosts.getCluster();
     }
-
-
-
-
+    
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -45,6 +42,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.print("in reg");
         String username=request.getParameter("username");
         String first_name=request.getParameter("first_name");   
         String last_name=request.getParameter("last_name"); 
@@ -54,12 +52,18 @@ public class Register extends HttpServlet {
         User us=new User();
         us.setCluster(cluster);
         us.RegisterUser(username, first_name, last_name, email, password);
-        
-	response.sendRedirect("/Instagrim");
-        RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
-        rd.forward(request,response);
+        System.out.print("in reg");
+       RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+       rd.forward(request,response);
     }
-
+    
+    
+@Override
+        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
+        rd.forward(request,response);
+        }
     /**
      * Returns a short description of the servlet.
      *
