@@ -23,16 +23,14 @@
         
         <nav>
             <ul>
-                <li class="nav"><a href="/Instagrim/upload">upload</a></li>
+                <li class="nav"><a href="/Instagrim/Upload">Upload</a></li>
                 <li class="nav"><a href="/Instagrim/profile">Profile</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
                 <li class="nav"><a href="/Instagrim/Signout">Sign Out</a></li>
             </ul>
         </nav>
             
-        <a href="/Instagrim/Image/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><br/><%
-
-                look up html tag for texboxes add here 
+        <a href="/Instagrim/Profile/"><img src="/Instagrim/Thumb/"></a><br/><%
         %>
         </article>
         <footer>

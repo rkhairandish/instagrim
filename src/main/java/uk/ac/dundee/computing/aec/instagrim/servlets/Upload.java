@@ -58,8 +58,7 @@ public class Upload extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+            throws ServletException, IOException {       
           RequestDispatcher rd = request.getRequestDispatcher("upload.jsp");
           rd.forward(request,response);
     }
