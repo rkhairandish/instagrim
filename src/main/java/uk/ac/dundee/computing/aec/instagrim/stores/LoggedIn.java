@@ -16,7 +16,7 @@ public class LoggedIn {
     private String first_name=null;
     private String last_name=null;
     private String email=null;
-    
+    public boolean gotuserpic=false;
     public void LoggedIn(){
         
     }

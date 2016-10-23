@@ -67,6 +67,10 @@ public class Login extends HttpServlet {
             lg.setfirst_name(us.returnDetails(username)[0]);
             lg.setlast_name(us.returnDetails(username)[1]);
             lg.setEmail(us.returnDetails(username)[2]);
+            if (us.returnDetails(username)[3]!=null){
+            lg.gotuserpic=true;
+            session.setAttribute("userprofilepic",us.returnDetails(username)[3] );
+            }
             request.setAttribute("LoggedIn", lg);
             
             session.setAttribute("LoggedIn", lg);
@@ -76,6 +80,7 @@ public class Login extends HttpServlet {
             
             
         }else{
+            response.sendRedirect("/Instagrim/login.jsp");
 //            session.setAttribute("InvalidPassword", "");
         }
             

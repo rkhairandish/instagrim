@@ -26,7 +26,7 @@
                
                 <li><a href="/Instagrim/Upload">Upload</a></li>
                     <%
-                        
+                        session.setAttribute("uploadtoprofile", "no");
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
                         if (lg != null) {
                             String UserName = lg.getUsername();

@@ -42,7 +42,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.print("in reg");
+        System.out.print("in registration");
         String username=request.getParameter("username");
         String first_name=request.getParameter("first_name");   
         String last_name=request.getParameter("last_name"); 

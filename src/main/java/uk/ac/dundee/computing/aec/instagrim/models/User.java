@@ -48,12 +48,14 @@ public class User {
         return true;
     }
     
+    
     public String[] returnDetails(String username){
         
-        String[] UserDetails = new String[3];
+        //modified to be an array
+        String[] UserDetails = new String[4];
      
         Session session = cluster.connect("instagrim");
-        PreparedStatement ps = session.prepare("SELECT first_name, last_name, email from userprofiles where login = ?");
+        PreparedStatement ps = session.prepare("SELECT first_name, last_name, email, picid from userprofiles where login = ?");
        
         ResultSet rs = null;
         BoundStatement boundStatement = new BoundStatement(ps);
@@ -61,17 +63,16 @@ public class User {
                 boundStatement.bind( // here you are binding the 'boundStatement'
                         username));
                 if (rs.isExhausted()) {
-            System.out.println("No Images returned");
+            System.out.println("No Details returned");
 
         } else {
             for (Row row : rs) {
                     UserDetails[0] = row.getString(0);
                     UserDetails[1] = row.getString(1);
                     UserDetails[2] = row.getString(2);
-                    System.out.println(UserDetails[0] + UserDetails[1] + UserDetails[2]);  
+                    UserDetails[3] = row.getString(3);
+                    System.out.println(UserDetails[0] + UserDetails[1] + UserDetails[2] + UserDetails[3]);  
                 }
-                //modified to be an array
-               // email = row.getString("email");   
             }
     return UserDetails; 
     }

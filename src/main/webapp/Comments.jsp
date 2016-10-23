@@ -14,6 +14,7 @@
         <title>Instagrim</title>
         <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
     </head>
+</body>
     <body>
         <header>
         
@@ -29,9 +30,10 @@
                 <li class="nav"><a href="/Instagrim/Signout">Sign Out</a></li>
             </ul>
         </nav>
-            
-        <a href="/Instagrim/Profile/"><img src="/Instagrim/Thumb/"></a><br/><%
-        %>
+        <form method="POST">
+            Comments: <input type="text" name="Comment"><br>
+            <input type="submit" value="Submit">
+        </form>
         </article>
         <footer>
             <ul>

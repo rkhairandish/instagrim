@@ -12,7 +12,7 @@
     
     <head>
         <title>Instagrim</title>
-        <link rel="stylesheet" type="text/css" href="Styles.css" />
+        <link rel="stylesheet" type="text/css" href="/Instagrim/Styles.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
@@ -24,7 +24,7 @@
             <ul>
 
                
-                <li><a href="/Instagrim/Upload">Upload</a></li>
+                <li><a href="/Instagrim/Upload">Change Profile Picture</a></li>
                     <%
                         
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
@@ -45,6 +45,8 @@
                     }%>
             </ul>
         </nav>
+            
+           
         <footer>
             <ul>
                 <li class="footer"><a href="/Instagrim">Home</a></li>
@@ -52,6 +54,13 @@
                 <li>Username: <%=lg.getUsername()%></li>
                 <li>Email: <%=lg.getEmail()%></li>
             </ul>
+                        <%
+                        if (lg != null) {
+                            if (lg.getlogedin()&&lg.gotuserpic) {
+                                String pic=(String)session.getAttribute("userprofilepic");
+                %>
+                            <img src="/Instagrim/Image/<%=pic%>" width="300">
+                            <%}}%>
         </footer>
     </body>
 </html>

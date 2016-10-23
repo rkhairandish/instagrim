@@ -45,8 +45,6 @@ public class Image extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Cluster cluster;
     private HashMap CommandsMap = new HashMap();
-    
-    
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -76,7 +74,7 @@ public class Image extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    // TODO Auto-generated method stub
+        // TODO Auto-generated method stub
         String args[] = Convertors.SplitRequestPath(request);
         int command;
         try {
@@ -87,13 +85,15 @@ public class Image extends HttpServlet {
         }
         switch (command) {
             case 1:
-                DisplayImage(Convertors.DISPLAY_PROCESSED,args[2], response);
+                
+                DisplayImage(Convertors.DISPLAY_PROCESSED, args[2], response);
                 break;
             case 2:
+
                 DisplayImageList(args[2], request, response);
                 break;
             case 3:
-                DisplayImage(Convertors.DISPLAY_THUMB,args[2],  response);
+                DisplayImage(Convertors.DISPLAY_THUMB, args[2], response);
                 break;
             default:
                 error("Bad Operator", response);
@@ -103,20 +103,31 @@ public class Image extends HttpServlet {
     private void DisplayImageList(String User, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PicModel tm = new PicModel();
         tm.setCluster(cluster);
+        if (User.equals("Profile"))
+        {
+            System.out.print("inside");
+                
+                    HttpSession session = request.getSession();
+                    session.setAttribute("uploadtoprofile", "yes");
+                    RequestDispatcher rd = request.getRequestDispatcher("/profile.jsp");
+   
+        rd.forward(request, response);
+                
+        } else {
         java.util.LinkedList<Pic> lsPics = tm.getPicsForUser(User);
         RequestDispatcher rd = request.getRequestDispatcher("/UsersPics.jsp");
         request.setAttribute("Pics", lsPics);
         rd.forward(request, response);
-
+        }
     }
 
-    private void DisplayImage(int type,String Image, HttpServletResponse response) throws ServletException, IOException {
+    private void DisplayImage(int type, String Image, HttpServletResponse response) throws ServletException, IOException {
+
         PicModel tm = new PicModel();
         tm.setCluster(cluster);
-  
-        
-        Pic p = tm.getPic(type,java.util.UUID.fromString(Image));
-        
+
+        Pic p = tm.getPic(type, java.util.UUID.fromString(Image));
+
         OutputStream out = response.getOutputStream();
 
         response.setContentType(p.getType());
@@ -138,15 +149,14 @@ public class Image extends HttpServlet {
 
             String type = part.getContentType();
             String filename = part.getSubmittedFileName();
-            
-            
+
             InputStream is = request.getPart(part.getName()).getInputStream();
             int i = is.available();
-            HttpSession session=request.getSession();
-            LoggedIn lg= (LoggedIn)session.getAttribute("LoggedIn");
-            String username="majed";
-            if (lg.getlogedin()){
-                username=lg.getUsername();
+            HttpSession session = request.getSession();
+            LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
+            String username = "majed";
+            if (lg.getlogedin()) {
+                username = lg.getUsername();
             }
             if (i > 0) {
                 byte[] b = new byte[i + 1];
@@ -154,13 +164,21 @@ public class Image extends HttpServlet {
                 System.out.println("Length : " + b.length);
                 PicModel tm = new PicModel();
                 tm.setCluster(cluster);
+                String ans=(String)session.getAttribute("uploadtoprofile");
+                if (ans.equals("yes"))
+                {
+                    tm.insertUserprofile(b, type, filename, username,request);
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                     rd.forward(request, response);
+                }else{
                 tm.insertPic(b, type, filename, username);
-
+                }
                 is.close();
             }
+
         }
-          RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-          rd.forward(request,response);
+        RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+        rd.forward(request, response);
     }
 
     private void error(String mess, HttpServletResponse response) throws ServletException, IOException {
@@ -171,5 +189,5 @@ public class Image extends HttpServlet {
         out.println("<h2>" + mess + "</h2>");
         out.close();
         return;
-    }   
+    }
 }

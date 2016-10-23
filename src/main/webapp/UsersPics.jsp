@@ -24,7 +24,7 @@
         <nav>
             <ul>
                 <li class="nav"><a href="/Instagrim/Upload">Upload</a></li>
-                <li class="nav"><a href="/Instagrim/Profile">Profile</a></li>
+                <li class="nav"><a href="/Instagrim/Images/Profile">Profile</a></li>
                 <li class="nav"><a href="/Instagrim/Images/majed">Sample Images</a></li>
                 <li class="nav"><a href="/Instagrim/SignOut">Sign Out</a></li>
             </ul>
@@ -46,7 +46,7 @@
                 Pic p = (Pic) iterator.next();
 
         %>                
-        <a href="/Instagrim/Comments/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><%
+        <a href="/Instagrim/Comment/<%=p.getSUUID()%>" ><img src="/Instagrim/Thumb/<%=p.getSUUID()%>"></a><%
 
             }
             }

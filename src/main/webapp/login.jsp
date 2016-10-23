@@ -29,6 +29,7 @@
         </header>
         <article>
             <h3>Login</h3>
+            <body>
             <form name="myForm" method="POST"  action="Login" onsubmit="return validateForm()">
                 <ul>
                     <li>Username <input type="text" name="username"></li>
