@@ -24,7 +24,7 @@
             <ul>
 
                
-                <li><a href="/Instagrim/Upload">Change Profile Picture</a></li>
+                <li><a href="/Instagrim/Upload">Upload</a></li>
                     <%
                         
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
@@ -59,7 +59,7 @@
                             if (lg.getlogedin()&&lg.gotuserpic) {
                                 String pic=(String)session.getAttribute("userprofilepic");
                 %>
-                            <img src="/Instagrim/Image/<%=pic%>" width="300">
+                            <img src="/Instagrim/Image/<%=pic%>" width="250">
                             <%}}%>
         </footer>
     </body>

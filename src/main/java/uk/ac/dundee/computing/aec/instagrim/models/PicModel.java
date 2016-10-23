@@ -98,6 +98,7 @@ public class PicModel {
             int length = b.length;
             java.util.UUID picid = convertor.getTimeUUID();
             sessionhttp.setAttribute("userprofilepic", picid.toString());
+            
             //The following is a quick and dirty way of doing this, will fill the disk quickly !
             Boolean success = (new File("/var/tmp/instagrim/")).mkdirs();
             FileOutputStream output = new FileOutputStream(new File("/var/tmp/instagrim/" + picid));

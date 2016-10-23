@@ -167,6 +167,8 @@ public class Image extends HttpServlet {
                 String ans=(String)session.getAttribute("uploadtoprofile");
                 if (ans.equals("yes"))
                 {
+                    lg.gotuserpic=true;
+                    session.setAttribute("LoggenIn",lg);
                     tm.insertUserprofile(b, type, filename, username,request);
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                      rd.forward(request, response);
