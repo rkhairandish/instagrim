@@ -36,11 +36,11 @@
             <h3>Please enter details to register as user</h3>
             <form name="myForm" method="POST"  action="Register" onsubmit="return validateForm()">
                 <ul>
-                    <li>Username <input type="text" name="username"></li>
-                    <li>First Name <input type="text" name="first_name"></li>
-                    <li>Last Name <input type="text" name="last_name"></li>
-                     <li>Email <input type="text" name="email"></li>
-                    <li>Password <input type="password" name="password"></li>
+                    <li>Username <input type="text" name="username" pattern="[^'\x22]+" title="Invalid input"></li>
+                    <li>First Name <input type="text" name="first_name" pattern="[^'\x22]+" title="Invalid input"></li>
+                    <li>Last Name <input type="text" name="last_name" pattern="[^'\x22]+" title="Invalid input"></li>
+                     <li>Email <input type="email" name="email"></li>
+                    <li>Password <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"></li>
                     
                 </ul>
                 <br/>
