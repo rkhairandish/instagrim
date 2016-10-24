@@ -29,8 +29,9 @@
                 <li class="nav"><a href="/Instagrim/Signout">Sign Out</a></li>
             </ul>
         </nav>
-        <form method="POST">
-            Comments: <input type="text" name="Comment"><br>
+        <div>${comment}</div>
+        <form method="POST" action="Comment">
+            Comments: <input type="text" name="comment"><br>
             <input type="submit" value="Submit">
         </form>
         </article>

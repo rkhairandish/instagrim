@@ -4,6 +4,8 @@ import com.datastax.driver.core.BoundStatement;
 import com.datastax.driver.core.Cluster;
 import static com.datastax.driver.core.DataType.text;
 import com.datastax.driver.core.PreparedStatement;
+import com.datastax.driver.core.ResultSet;
+import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -69,20 +71,23 @@ public class Comment extends HttpServlet {
             System.out.println("add comment to : "+args[2]);
             HttpSession session=request.getSession();
             session.setAttribute("picid",args[2]);
-            RequestDispatcher rd=request.getRequestDispatcher("/Comments.jsp");
-	    rd.forward(request,response);
+            session.setAttribute("comment",getComment(args[2]));
+            response.sendRedirect("/Instagrim/Comments.jsp");
     }
 
     @Override
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException { 
-         HttpSession session=request.getSession();
-       String picid=(String)session.getAttribute("picid");
          System.out.print("your text:");
-         String comment=request.getParameter("Comment");
+         HttpSession session=request.getSession();
+         System.out.print("your text:");
+         String picid=(String)session.getAttribute("picid");
+         System.out.print("your text:");
+         String comment=request.getParameter("comment");
          System.out.print("your text:"+comment);
          setComment(comment,picid);
          System.out.print("your text:"+comment);
+          response.sendRedirect("/Instagrim/Comments.jsp");
      }
 
     
@@ -100,14 +105,35 @@ public class Comment extends HttpServlet {
     
         try (Session session = cluster.connect("instagrim")) {
             String tmp="{\'"+comment+"\'}";
-            String code = "UPDATE Pics set comment=comment+" + tmp + " where picid=?";
+            String code = "UPDATE Pics set Comments=Comments+" + tmp + " where picid=?";
             System.out.print(code);
             PreparedStatement ps = session.prepare(code);
             
             BoundStatement bsInsertPic = new BoundStatement(ps);
 
-            session.execute(bsInsertPic.bind(picid));
+            session.execute(bsInsertPic.bind(java.util.UUID.fromString(picid)));
         }
+       
+    }
+    
+    public String getComment ( String picid) {
+    String tmp=null;
+        try (Session session = cluster.connect("instagrim")) {
+            
+            String code = "select Comments from pics where picid=?";
+            System.out.print(code);
+            PreparedStatement ps = session.prepare(code);
+            
+            BoundStatement bsInsertPic = new BoundStatement(ps);
+
+            ResultSet rs =session.execute(bsInsertPic.bind(java.util.UUID.fromString(picid)));
+            
+            for (Row row:rs)
+            {
+                tmp=row.toString();
+            }
+        }
+        return tmp;
 
     }
 }
